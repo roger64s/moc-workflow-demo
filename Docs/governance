@@ -1,0 +1,19 @@
+Haz360 AI Governance & Budget
+1. Budgeting Strategy
+•	Recommended Approach: Use Cursor Pro ($20/month flat fee).
+o	Why: This eliminates the stress of "token counting." You get a predictable cost, and you are free to experiment without monitoring your usage every hour.
+•	API Approach (Optional): If you use the Anthropic API (pay-per-token), log into your Anthropic Console Billing and set a "Usage Limit" (e.g., set to $25.00). The API will stop working once you hit that, preventing surprise bills.
+2. Iteration Discipline (The "Architect's Rule")
+To avoid wasting tokens and AI "compute," follow the "No-Retry Rule":
+1.	Before Prompting: Ensure the context is clear (e.g., "Review the schema.prisma file before generating the form").
+2.	The 3-Attempt Cap: If a feature isn't working after 3 attempts, stop. The AI is stuck in a bad context loop.
+o	Solution: Create a new chat session in Cursor, copy in the schema.prisma file, and explain the problem from scratch. This is cheaper and faster than fighting with a "broken" chat.
+3. Scope Governance
+•	Do not ask the AI to "Refactor" or "Optimize" code unless you have a specific performance issue.
+•	Focus on Function: If the code works for the Demo, move on. You are building an MVP, not a production-grade enterprise system yet.
+4. Operational Checkpoint
+•	Before moving to a new phase, verify the current phase is stable. Do not let the AI stack unverified logic on top of itself.
+
+
+The Chain: Each phase feeds the next. You cannot have a dashboard (Phase 4) without data (Phase 1).
+The Guardrails: These prompts instruct the AI to build components that interact with the data, which is exactly how a scalable system is designed.

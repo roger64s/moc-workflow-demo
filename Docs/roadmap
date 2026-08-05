@@ -1,0 +1,26 @@
+Haz360 Architectural Roadmap (MVP Focus)
+This is the operational sequence, excluding authentication. We will treat the system as a "Public/Internal" dashboard for now.
+Phase 1: Foundation (The Schema & Roles)
+•	Goal: Define the data structure, including User Roles.
+•	Deliverable: schema.prisma with MOC, ApprovalWorkflow, Department, and User (Initiator/Approver roles).
+•	Architect Decision: Define InitiatorID (the record creator) and FinalApproverID (the authority required for final status transition to 'Closed').
+Phase 2: Core Logic (The Business Rules)
+•	Goal: Program the "Approval Engine."
+•	Deliverable: Backend logic that enforces the sequence: Initiator Request -> Dept Sign-offs -> Final Authority Sign-off -> Closed.
+•	Architect Decision: Enforce that the "Final Approver" field is disabled until all required department approvals are completed (Dependency Lock).
+Phase 3: The Interface (The UX & Form)
+•	Goal: Create the "MOC Intake Form."
+•	Deliverable: A dynamic web form that changes inputs based on the MOC Type.
+•	Architect Decision: Ensure the "Initiator" name auto-populates on the form for audit tracking.
+Phase 4: The Dashboard (The Control Center)
+•	Goal: Build the operational view for all stakeholders.
+•	Deliverable: A Kanban/Dashboard interface showing real-time status: Open, WIP, Safety Lock, Pending Final Approval, Closed.
+•	Architect Decision: Bottleneck indicators must track time-in-state for the "Final Approval" step.
+Phase 5: Compliance (PDF Export)
+•	Goal: Convert digital records to the formal HSE/PSM/F/01 document.
+•	Deliverable: A downloadable PDF containing signatures for Initiator, Dept Heads, and Final Approver.
+•	Architect Decision: Layout must show the specific hierarchy of sign-offs.
+Phase 6: Deployment (The Launch)
+•	Goal: Go Live as a Demo URL.
+•	Deliverable: Application hosted on a public URL (Vercel).
+•	Architect Decision: Final sign-off simulation.

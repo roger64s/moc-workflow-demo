@@ -1,0 +1,46 @@
+generator client {
+provider = "prisma-client-js"
+}
+
+datasource db {
+provider = "sqlite"
+}
+
+model User {
+id        Int           @id @default(autoincrement())
+email     String        @unique
+name      String?
+requests  MOC_Request[]
+createdAt DateTime      @default(now())
+updatedAt DateTime      @updatedAt
+}
+
+model MOC_Request {
+id                   Int       @id @default(autoincrement())
+requestNumber        String    @unique
+title                String
+type                 String    // "Permanent" or "Temporary"
+scopeCategory        String    @default("Raw_Material")
+status               String    @default("Open")
+description          String?
+initiatorId          Int
+initiator            User      @relation(fields: [initiatorId], references: [id])
+facilityLayoutChange Boolean   @default(false)
+sifOrSisChange       Boolean   @default(false)
+bypassedSafeguard    Boolean   @default(false)
+// STREAMING_CHUNK:Adding safety sign-off tracking field
+safetySignOffAt      DateTime?
+createdAt            DateTime  @default(now())
+updatedAt            DateTime  @updatedAt
+}
+
+model Workflow_Template {
+id          Int      @id @default(autoincrement())
+mocType     String
+scopeCategory String @default("Raw_Material")
+stepsJson   String
+createdAt   DateTime @default(now())
+updatedAt   DateTime @updatedAt
+
+@@unique([mocType, scopeCategory])
+}

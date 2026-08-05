@@ -1,0 +1,12 @@
+# AI UI/UX Generation Rules 
+
+## 1. Core Layout Constraints
+* **Screen Fit:** All generated UI components, tables, and dashboards **must fit entirely within standard desktop viewport widths and heights** without requiring vertical or horizontal page scrolling.
+* **Shell Consistency:** Always wrap generated content inside the standard layout frame (dark blue vertical sidebar navigation + top status bar).
+
+## 2. Data & Information Hierarchy
+* **User Input Priority:** Center the UI strictly around user-inputted fields (e.g., Request Number, Title, Type, Status). 
+* **Overflow Handling:** Hide or relocate secondary database metadata (auto-generated IDs, raw timestamps, complex relational foreign keys) into a collapsible **Right-Side Inspector Panel**. Do not crowd the primary data table.
+
+## 3. Visual & Aesthetic Styling
+* **Theme Matching:** Use the established Haz360 color palette (dark navy sidebar, clean white/light gray background containers, high-contrast status badge colors like Red for open items, Yellow for WIP, and Blue/Green for completed states).
