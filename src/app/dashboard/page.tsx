@@ -362,10 +362,6 @@ export default function DashboardPage() {
 
       <div className="flex justify-between items-center mb-6">
         <div>
-          <div className="flex items-center space-x-3 mb-1">
-            <span className="bg-amber-600 text-white font-black px-2 py-0.5 rounded text-xs tracking-wider">HAZ360</span>
-            <span className="text-slate-500 text-xs font-medium">Project 272 (ID: 11281188) • Unit: Acetylene Recovery</span>
-          </div>
           <h1 className="text-2xl font-bold text-slate-900">MOC Enterprise Control & Action Tracking Register</h1>
         </div>
         <div className="space-x-3 flex items-center">
@@ -403,7 +399,13 @@ export default function DashboardPage() {
         <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
           <div>
             <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Action Source Types</p>
-            <p className="text-lg font-bold text-purple-600 mt-1">HAZOP/MOC/SIL</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <span className="rounded-full bg-purple-100 text-purple-700 border border-purple-200 px-2.5 py-1 text-xs font-bold">MOC</span>
+              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">HAZOP</span>
+              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">SIL</span>
+              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">Alarm</span>
+              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">SCE</span>
+            </div>
           </div>
           <div className="bg-purple-50 text-purple-600 p-3 rounded-lg border border-purple-200"><i className="fa-solid fa-shield-heart text-lg"></i></div>
         </div>
@@ -450,7 +452,6 @@ export default function DashboardPage() {
                 <th className="p-3">MOC Ref</th>
                 <th className="p-3">Initiator</th>
                 <th className="p-3">Description</th>
-                <th className="p-3">Action Source</th>
                 <th className="p-3">HAZOP Node</th>
                 <th className="p-3">Action Status</th>
                 <th className="p-3 text-right">Total Ageing</th>
@@ -471,7 +472,6 @@ export default function DashboardPage() {
                     </td>
                     <td className="p-3 text-slate-700">{moc.initiatorId}</td>
                     <td className="p-3 font-medium text-slate-900">{moc.title}</td>
-                    <td className="p-3 text-slate-500 text-xs font-mono">{moc.actionSource}</td>
                     <td className="p-3 font-mono text-xs text-slate-500">{moc.node}</td>
                     <td className="p-3">
                       <span className={`px-2.5 py-1 rounded text-xs font-semibold border ${
