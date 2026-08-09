@@ -369,23 +369,23 @@ export default function DashboardPage() {
         </div>
       )}
 
-      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 md:gap-4 mb-6">
         <div>
-          <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-slate-900 leading-tight">MOC Enterprise Control & Action Tracking Register</h1>
+          <h1 className="text-base md:text-lg lg:text-2xl font-bold text-slate-900 leading-tight">MOC Enterprise Control & Action Tracking Register</h1>
         </div>
-        <div className="flex flex-col sm:flex-row gap-2 shrink-0">
+        <div className="flex flex-row gap-2 shrink-0">
           <button
             type="button"
             onClick={() => router.push('/workflow-config')}
-            className="rounded-lg border border-amber-300 bg-amber-50 px-4 py-2 text-sm font-bold text-amber-800 hover:bg-amber-100 transition whitespace-nowrap"
+            className="rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-xs md:text-sm font-bold text-amber-800 hover:bg-amber-100 transition whitespace-nowrap"
           >
-            <i className="fa-solid fa-gear mr-1.5"></i> Admin Config
+            <i className="fa-solid fa-gear mr-1"></i> Admin
           </button>
           <button 
             onClick={() => setShowIntakeModal(true)}
-            className="bg-amber-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-amber-700 transition flex items-center justify-center shadow-sm whitespace-nowrap"
+            className="bg-amber-600 text-white px-3 py-2 rounded-lg text-xs md:text-sm font-bold hover:bg-amber-700 transition flex items-center justify-center shadow-sm whitespace-nowrap"
           >
-            <i className="fa-solid fa-plus mr-1.5"></i> New MOC Request
+            <i className="fa-solid fa-plus mr-1"></i> New MOC
           </button>
         </div>
       </div>
