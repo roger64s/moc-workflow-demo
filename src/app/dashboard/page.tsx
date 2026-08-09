@@ -369,66 +369,66 @@ export default function DashboardPage() {
         </div>
       )}
 
-      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 mb-6">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
         <div>
-          <h1 className="text-xl lg:text-2xl font-bold text-slate-900">MOC Enterprise Control & Action Tracking Register</h1>
+          <h1 className="text-lg md:text-xl lg:text-2xl font-bold text-slate-900 leading-tight">MOC Enterprise Control & Action Tracking Register</h1>
         </div>
-        <div className="flex flex-col sm:flex-row gap-2">
+        <div className="flex flex-col sm:flex-row gap-2 shrink-0">
           <button
             type="button"
             onClick={() => router.push('/workflow-config')}
-            className="rounded-lg border border-amber-300 bg-amber-50 px-4 py-2 text-sm font-bold text-amber-800 hover:bg-amber-100 transition"
+            className="rounded-lg border border-amber-300 bg-amber-50 px-4 py-2 text-sm font-bold text-amber-800 hover:bg-amber-100 transition whitespace-nowrap"
           >
             <i className="fa-solid fa-gear mr-1.5"></i> Admin Config
           </button>
           <button 
             onClick={() => setShowIntakeModal(true)}
-            className="bg-amber-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-amber-700 transition flex items-center justify-center shadow-sm"
+            className="bg-amber-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-amber-700 transition flex items-center justify-center shadow-sm whitespace-nowrap"
           >
             <i className="fa-solid fa-plus mr-1.5"></i> New MOC Request
           </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 mb-6">
         <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
           <div>
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Open Action Records</p>
-            <p className="text-3xl font-bold text-slate-900 mt-1">{openCount}</p>
+            <p className="text-[10px] lg:text-xs font-semibold text-slate-500 uppercase tracking-wider">Open Action Records</p>
+            <p className="text-2xl lg:text-3xl font-bold text-slate-900 mt-1">{openCount}</p>
           </div>
-          <div className="bg-blue-50 text-blue-600 p-3 rounded-lg border border-blue-200"><i className="fa-solid fa-folder-open text-lg"></i></div>
+          <div className="bg-blue-50 text-blue-600 p-2.5 lg:p-3 rounded-lg border border-blue-200"><i className="fa-solid fa-folder-open text-base lg:text-lg"></i></div>
         </div>
         <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
           <div>
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">WIP Workflows</p>
-            <p className="text-3xl font-bold text-amber-600 mt-1">{pssrCount}</p>
+            <p className="text-[10px] lg:text-xs font-semibold text-slate-500 uppercase tracking-wider">WIP Workflows</p>
+            <p className="text-2xl lg:text-3xl font-bold text-amber-600 mt-1">{pssrCount}</p>
           </div>
-          <div className="bg-amber-50 text-amber-600 p-3 rounded-lg border border-amber-200"><i className="fa-solid fa-diagram-project text-lg"></i></div>
+          <div className="bg-amber-50 text-amber-600 p-2.5 lg:p-3 rounded-lg border border-amber-200"><i className="fa-solid fa-diagram-project text-base lg:text-lg"></i></div>
         </div>
         <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
           <div>
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Action Source Types</p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              <span className="rounded-full bg-purple-100 text-purple-700 border border-purple-200 px-2.5 py-1 text-xs font-bold">MOC</span>
-              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">HAZOP</span>
-              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">SIL</span>
-              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">Alarm</span>
-              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">SCE</span>
+            <p className="text-[10px] lg:text-xs font-semibold text-slate-500 uppercase tracking-wider">Action Source Types</p>
+            <div className="mt-1 lg:mt-2 flex flex-wrap gap-1.5 lg:gap-2">
+              <span className="rounded-full bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 text-[10px] lg:text-xs font-bold">MOC</span>
+              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2 py-0.5 text-[10px] lg:text-xs font-medium">HAZOP</span>
+              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2 py-0.5 text-[10px] lg:text-xs font-medium">SIL</span>
+              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2 py-0.5 text-[10px] lg:text-xs font-medium">Alarm</span>
+              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2 py-0.5 text-[10px] lg:text-xs font-medium">SCE</span>
             </div>
           </div>
-          <div className="bg-purple-50 text-purple-600 p-3 rounded-lg border border-purple-200"><i className="fa-solid fa-shield-heart text-lg"></i></div>
+          <div className="bg-purple-50 text-purple-600 p-2.5 lg:p-3 rounded-lg border border-purple-200"><i className="fa-solid fa-shield-heart text-base lg:text-lg"></i></div>
         </div>
         <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
           <div>
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Average Cycle Age</p>
-            <p className="text-3xl font-bold text-emerald-600 mt-1">{avgAge} Days</p>
+            <p className="text-[10px] lg:text-xs font-semibold text-slate-500 uppercase tracking-wider">Average Cycle Age</p>
+            <p className="text-2xl lg:text-3xl font-bold text-emerald-600 mt-1">{avgAge} Days</p>
           </div>
-          <div className="bg-emerald-50 text-emerald-600 p-3 rounded-lg border border-emerald-200"><i className="fa-solid fa-clock text-lg"></i></div>
+          <div className="bg-emerald-50 text-emerald-600 p-2.5 lg:p-3 rounded-lg border border-emerald-200"><i className="fa-solid fa-clock text-base lg:text-lg"></i></div>
         </div>
       </div>
 
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="p-4 border-b border-slate-200 font-semibold text-slate-800 flex flex-col lg:flex-row lg:justify-between lg:items-center gap-3 bg-slate-50">
+        <div className="p-4 border-b border-slate-200 font-semibold text-slate-800 flex flex-col md:flex-row md:justify-between md:items-center gap-3 bg-slate-50">
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
             <span className="text-sm font-bold text-slate-900">Enterprise MOC Register</span>
             <div className="flex space-x-1 text-xs">
@@ -456,7 +456,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Desktop table */}
-        <div className="hidden lg:block overflow-x-auto">
+        <div className="hidden md:block overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-slate-100 text-slate-600 text-xs uppercase font-semibold border-b border-slate-200">
@@ -507,7 +507,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Mobile cards */}
-        <div className="lg:hidden divide-y divide-slate-100">
+        <div className="md:hidden divide-y divide-slate-100">
           {filteredMocs.map((moc) => {
             const totalAge = moc.steps ? moc.steps.reduce((acc, s) => acc + (s.ageing || 1), 0) : 1;
             return (
