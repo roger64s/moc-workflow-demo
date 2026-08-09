@@ -369,9 +369,9 @@ export default function DashboardPage() {
         </div>
       )}
 
-      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 md:gap-4 mb-6">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 md:gap-4 mb-4 md:mb-6">
         <div>
-          <h1 className="text-base md:text-lg lg:text-2xl font-bold text-slate-900 leading-tight">MOC Enterprise Control & Action Tracking Register</h1>
+          <h1 className="text-base md:text-lg lg:text-2xl font-bold text-slate-900 leading-tight">MOC Control & Action Tracking Register</h1>
         </div>
         <div className="flex flex-row gap-2 shrink-0">
           <button
@@ -390,40 +390,73 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 mb-6">
+      {/* Desktop stats row */}
+      <div className="hidden lg:grid grid-cols-4 gap-4 mb-6">
         <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
           <div>
-            <p className="text-[10px] lg:text-xs font-semibold text-slate-500 uppercase tracking-wider">Open Action Records</p>
-            <p className="text-2xl lg:text-3xl font-bold text-slate-900 mt-1">{openCount}</p>
+            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Open Action Records</p>
+            <p className="text-3xl font-bold text-slate-900 mt-1">{openCount}</p>
           </div>
-          <div className="bg-blue-50 text-blue-600 p-2.5 lg:p-3 rounded-lg border border-blue-200"><i className="fa-solid fa-folder-open text-base lg:text-lg"></i></div>
+          <div className="bg-blue-50 text-blue-600 p-3 rounded-lg border border-blue-200"><i className="fa-solid fa-folder-open text-lg"></i></div>
         </div>
         <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
           <div>
-            <p className="text-[10px] lg:text-xs font-semibold text-slate-500 uppercase tracking-wider">WIP Workflows</p>
-            <p className="text-2xl lg:text-3xl font-bold text-amber-600 mt-1">{pssrCount}</p>
+            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">WIP Workflows</p>
+            <p className="text-3xl font-bold text-amber-600 mt-1">{pssrCount}</p>
           </div>
-          <div className="bg-amber-50 text-amber-600 p-2.5 lg:p-3 rounded-lg border border-amber-200"><i className="fa-solid fa-diagram-project text-base lg:text-lg"></i></div>
+          <div className="bg-amber-50 text-amber-600 p-3 rounded-lg border border-amber-200"><i className="fa-solid fa-diagram-project text-lg"></i></div>
         </div>
         <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
           <div>
-            <p className="text-[10px] lg:text-xs font-semibold text-slate-500 uppercase tracking-wider">Action Source Types</p>
-            <div className="mt-1 lg:mt-2 flex flex-wrap gap-1.5 lg:gap-2">
-              <span className="rounded-full bg-purple-100 text-purple-700 border border-purple-200 px-2 py-0.5 text-[10px] lg:text-xs font-bold">MOC</span>
-              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2 py-0.5 text-[10px] lg:text-xs font-medium">HAZOP</span>
-              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2 py-0.5 text-[10px] lg:text-xs font-medium">SIL</span>
-              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2 py-0.5 text-[10px] lg:text-xs font-medium">Alarm</span>
-              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2 py-0.5 text-[10px] lg:text-xs font-medium">SCE</span>
+            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Action Source Types</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <span className="rounded-full bg-purple-100 text-purple-700 border border-purple-200 px-2.5 py-1 text-xs font-bold">MOC</span>
+              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">HAZOP</span>
+              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">SIL</span>
+              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">Alarm</span>
+              <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">SCE</span>
             </div>
           </div>
-          <div className="bg-purple-50 text-purple-600 p-2.5 lg:p-3 rounded-lg border border-purple-200"><i className="fa-solid fa-shield-heart text-base lg:text-lg"></i></div>
+          <div className="bg-purple-50 text-purple-600 p-3 rounded-lg border border-purple-200"><i className="fa-solid fa-shield-heart text-lg"></i></div>
         </div>
         <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
           <div>
-            <p className="text-[10px] lg:text-xs font-semibold text-slate-500 uppercase tracking-wider">Average Cycle Age</p>
-            <p className="text-2xl lg:text-3xl font-bold text-emerald-600 mt-1">{avgAge} Days</p>
+            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Average Cycle Age</p>
+            <p className="text-3xl font-bold text-emerald-600 mt-1">{avgAge} Days</p>
           </div>
-          <div className="bg-emerald-50 text-emerald-600 p-2.5 lg:p-3 rounded-lg border border-emerald-200"><i className="fa-solid fa-clock text-base lg:text-lg"></i></div>
+          <div className="bg-emerald-50 text-emerald-600 p-3 rounded-lg border border-emerald-200"><i className="fa-solid fa-clock text-lg"></i></div>
+        </div>
+      </div>
+
+      {/* Mobile stats grid - CRM style */}
+      <div className="lg:hidden grid grid-cols-2 gap-3 mb-4">
+        <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+          <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">Open Records</p>
+          <p className="text-3xl font-bold text-slate-900 mt-1">{openCount}</p>
+        </div>
+        <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+          <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">WIP Workflows</p>
+          <p className="text-3xl font-bold text-amber-600 mt-1">{pssrCount}</p>
+        </div>
+        <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+          <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">Avg Cycle Age</p>
+          <p className="text-3xl font-bold text-emerald-600 mt-1">{avgAge}<span className="text-sm font-medium text-slate-500 ml-1">d</span></p>
+        </div>
+        <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+          <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">Total Records</p>
+          <p className="text-3xl font-bold text-purple-600 mt-1">{totalRecords}</p>
+        </div>
+      </div>
+
+      {/* Mobile source tags */}
+      <div className="lg:hidden mb-4">
+        <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-2">Action Source Types</p>
+        <div className="flex flex-wrap gap-2">
+          <span className="rounded-full bg-purple-100 text-purple-700 border border-purple-200 px-2.5 py-1 text-xs font-bold">MOC</span>
+          <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">HAZOP</span>
+          <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">SIL</span>
+          <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">Alarm</span>
+          <span className="rounded-full bg-slate-100 text-slate-500 border border-slate-200 px-2.5 py-1 text-xs font-medium">SCE</span>
         </div>
       </div>
 
