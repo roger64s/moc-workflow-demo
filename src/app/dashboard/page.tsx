@@ -337,6 +337,15 @@ export default function DashboardPage() {
 
   return (
     <div className="p-6 bg-slate-50 min-h-screen text-slate-900 font-sans">
+      <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <span className="inline-flex h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
+          <span className="font-semibold">Demo Mode</span>
+          <span className="hidden sm:inline">— No login required. All data shown is simulated for demonstration.</span>
+        </div>
+        <span className="text-xs font-medium">Public Preview</span>
+      </div>
+
       {showIntakeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/45 p-4">
           <div className="relative w-full max-w-3xl rounded-2xl bg-white shadow-2xl border border-slate-200">
