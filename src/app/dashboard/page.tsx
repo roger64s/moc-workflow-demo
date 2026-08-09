@@ -179,35 +179,35 @@ export default function DashboardPage() {
   if (selectedMoc) {
     return (
       <div className="p-6 bg-slate-50 min-h-screen text-slate-900 font-sans">
-        <div className="flex justify-between items-center mb-6">
-          <div className="flex items-center space-x-3">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 mb-6">
+          <div className="flex flex-wrap items-center gap-2">
             <button 
               onClick={() => setSelectedMocId(null)}
               className="bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center shadow-xs"
             >
-              <i className="fa-solid fa-arrow-left mr-1.5"></i> Back to Enterprise Register
+              <i className="fa-solid fa-arrow-left mr-1.5"></i> Back
             </button>
             <span className="bg-amber-600 text-white font-black px-2 py-0.5 rounded text-xs tracking-wider">HAZ360</span>
-            <span className="text-amber-700 text-xs font-mono font-bold">{selectedMoc.requestNumber} Action Tracking Workflow Schema</span>
+            <span className="text-amber-700 text-xs font-mono font-bold">{selectedMoc.requestNumber} Workflow Schema</span>
           </div>
-          <div className="flex items-center space-x-3">
+          <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs bg-white text-slate-700 font-mono px-3 py-1 rounded-lg border border-slate-300 shadow-xs">
               Source: <strong className="text-amber-600">{selectedMoc.actionSource}</strong>
             </span>
             <span className={`px-3 py-1 rounded-lg text-xs font-bold border ${selectedMoc.actionStatus === 'Closed' ? 'bg-emerald-50 text-emerald-700 border-emerald-300' : 'bg-amber-50 text-amber-700 border-amber-300'}`}>
-              Action Status: {selectedMoc.actionStatus}
+              Status: {selectedMoc.actionStatus}
             </span>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-5 mb-6">
-          <div className="flex justify-between items-start">
+        <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 lg:p-5 mb-6">
+          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4">
             <div>
               <span className="text-xs font-bold text-amber-600 uppercase tracking-wider">{selectedMoc.type} MOC • Node: {selectedMoc.node}</span>
-              <h1 className="text-xl font-bold text-slate-900 mt-0.5">{selectedMoc.title}</h1>
-              <p className="text-xs text-slate-500 mt-1">Initiator / Owner: <strong className="text-slate-800">{selectedMoc.initiatorId}</strong> | Created: {selectedMoc.createdAt}</p>
+              <h1 className="text-lg lg:text-xl font-bold text-slate-900 mt-0.5">{selectedMoc.title}</h1>
+              <p className="text-xs text-slate-500 mt-1">Initiator: <strong className="text-slate-800">{selectedMoc.initiatorId}</strong> | Created: {selectedMoc.createdAt}</p>
             </div>
-            <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl text-right">
+            <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl lg:text-right">
               <p className="text-[10px] uppercase font-bold text-slate-500">Total Schema Steps</p>
               <p className="text-sm font-mono font-bold text-amber-600 mt-0.5">12 Default Gateway Stages</p>
             </div>
@@ -369,28 +369,28 @@ export default function DashboardPage() {
         </div>
       )}
 
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">MOC Enterprise Control & Action Tracking Register</h1>
+          <h1 className="text-xl lg:text-2xl font-bold text-slate-900">MOC Enterprise Control & Action Tracking Register</h1>
         </div>
-        <div className="space-x-3 flex items-center">
+        <div className="flex flex-col sm:flex-row gap-2">
           <button
             type="button"
             onClick={() => router.push('/workflow-config')}
             className="rounded-lg border border-amber-300 bg-amber-50 px-4 py-2 text-sm font-bold text-amber-800 hover:bg-amber-100 transition"
           >
-            <i className="fa-solid fa-gear mr-1.5"></i> Admin Stage Config
+            <i className="fa-solid fa-gear mr-1.5"></i> Admin Config
           </button>
           <button 
             onClick={() => setShowIntakeModal(true)}
-            className="bg-amber-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-amber-700 transition flex items-center shadow-sm"
+            className="bg-amber-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-amber-700 transition flex items-center justify-center shadow-sm"
           >
-            <i className="fa-solid fa-plus mr-1.5"></i> New MOC Request (Schema)
+            <i className="fa-solid fa-plus mr-1.5"></i> New MOC Request
           </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 mb-6">
         <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
           <div>
             <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Open Action Records</p>
@@ -428,9 +428,9 @@ export default function DashboardPage() {
       </div>
 
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="p-4 border-b border-slate-200 font-semibold text-slate-800 flex justify-between items-center bg-slate-50">
-          <div className="flex items-center space-x-4">
-            <span className="text-sm font-bold text-slate-900">Enterprise MOC Register (Click any Ref to inspect 12-Step Schema Matrix)</span>
+        <div className="p-4 border-b border-slate-200 font-semibold text-slate-800 flex flex-col lg:flex-row lg:justify-between lg:items-center gap-3 bg-slate-50">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+            <span className="text-sm font-bold text-slate-900">Enterprise MOC Register</span>
             <div className="flex space-x-1 text-xs">
               {['All', 'WIP', 'Closed'].map(status => (
                 <button
@@ -443,18 +443,20 @@ export default function DashboardPage() {
               ))}
             </div>
           </div>
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center gap-2">
             <input 
               type="text"
               placeholder="Search MOC register..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-900 focus:outline-none focus:border-amber-500"
+              className="bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-900 focus:outline-none focus:border-amber-500 w-full sm:w-auto"
             />
-            <span className="text-xs text-slate-700 font-mono bg-slate-100 px-2.5 py-1 rounded border border-slate-300">{filteredMocs.length} Records</span>
+            <span className="text-xs text-slate-700 font-mono bg-slate-100 px-2.5 py-1 rounded border border-slate-300 whitespace-nowrap">{filteredMocs.length} Records</span>
           </div>
         </div>
-        <div className="overflow-x-auto">
+
+        {/* Desktop table */}
+        <div className="hidden lg:block overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-slate-100 text-slate-600 text-xs uppercase font-semibold border-b border-slate-200">
@@ -497,11 +499,46 @@ export default function DashboardPage() {
               })}
               {filteredMocs.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="p-8 text-center text-slate-400">No MOC records match your filter criteria.</td>
+                  <td colSpan={6} className="p-8 text-center text-slate-400">No MOC records match your filter criteria.</td>
                 </tr>
               )}
             </tbody>
           </table>
+        </div>
+
+        {/* Mobile cards */}
+        <div className="lg:hidden divide-y divide-slate-100">
+          {filteredMocs.map((moc) => {
+            const totalAge = moc.steps ? moc.steps.reduce((acc, s) => acc + (s.ageing || 1), 0) : 1;
+            return (
+              <div key={moc.id} className="p-4 hover:bg-slate-50 transition">
+                <div className="flex justify-between items-start mb-2">
+                  <button 
+                    onClick={() => setSelectedMocId(moc.id)}
+                    className="font-mono font-bold text-amber-600 hover:underline flex items-center"
+                  >
+                    {moc.requestNumber} <i className="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                  </button>
+                  <span className={`px-2.5 py-1 rounded text-xs font-semibold border ${
+                    moc.actionStatus === 'Closed' 
+                      ? 'bg-emerald-50 text-emerald-700 border-emerald-300' 
+                      : 'bg-amber-50 text-amber-700 border-amber-300'
+                  }`}>
+                    {moc.actionStatus}
+                  </span>
+                </div>
+                <h3 className="font-medium text-slate-900 text-sm mb-1">{moc.title}</h3>
+                <div className="grid grid-cols-2 gap-y-1 gap-x-3 text-xs text-slate-600">
+                  <span><span className="font-semibold text-slate-500">Initiator:</span> {moc.initiatorId}</span>
+                  <span><span className="font-semibold text-slate-500">Node:</span> {moc.node}</span>
+                  <span><span className="font-semibold text-slate-500">Ageing:</span> <span className="font-mono font-semibold text-amber-600">{totalAge}d</span></span>
+                </div>
+              </div>
+            );
+          })}
+          {filteredMocs.length === 0 && (
+            <div className="p-8 text-center text-slate-400 text-sm">No MOC records match your filter criteria.</div>
+          )}
         </div>
       </div>
     </div>
