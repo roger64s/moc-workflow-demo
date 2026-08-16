@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MOC Workflow Project Metrics</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
   <style>
     :root { color-scheme: light; --ink:#172033; --muted:#64748b; --teal:#0f766e; --blue:#2563eb; --orange:#f97316; --gold:#eab308; --purple:#7c3aed; }
     * { box-sizing:border-box; }
@@ -33,6 +34,8 @@
     </div>
   </main>
   <script>
+    Chart.register(ChartDataLabels);
+    Chart.defaults.plugins.datalabels = { color:(context) => { const bg = Array.isArray(context.dataset.backgroundColor) ? context.dataset.backgroundColor[context.dataIndex] : context.dataset.backgroundColor; const hex = String(bg || '#fff').replace('#',''); const rgb = hex.length === 3 ? hex.split('').map((v) => parseInt(v + v, 16)) : [parseInt(hex.slice(0,2),16), parseInt(hex.slice(2,4),16), parseInt(hex.slice(4,6),16)]; return (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255 < 0.58 ? '#fff' : '#172033'; }, font:(context) => ({ weight:'bold', size:Math.max(9, Math.min(12, context.chart.width / 75)) }), formatter:(value) => value.toLocaleString() };
     const labels = ['2026'];
     const categories = ['Coding', 'Testing', 'Rework', 'Deployment', 'Planning'];
     const values = [50, 25, 15, 7, 3];

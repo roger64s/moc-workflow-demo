@@ -15,6 +15,7 @@ Key files:
 - Vercel deployment configuration
 - Separate interactive metrics page: [charts.html](charts.html)
 - Vercel dashboard button opens the deployed Project Metrics page at `/charts.html`.
+- Chart values display responsive, contrast-aware numeric labels.
 
 ## Time Distribution (estimated %)
 

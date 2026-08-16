@@ -57,3 +57,5 @@
 
 - Keep project metrics in a separate interactive chart page linked from the project summary when the project is closed.
 - Show the Project Metrics page from the deployed Vercel dashboard with a dedicated button.
+- Preview project changes locally first and update GitHub only after an explicit `Close Project` request.
+- Show numeric labels on all project-metrics chart values, with responsive sizing and readable contrast.
