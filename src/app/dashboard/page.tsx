@@ -376,6 +376,14 @@ export default function DashboardPage() {
           <h1 className="text-base md:text-lg lg:text-2xl font-bold text-slate-900 leading-tight">MOC Control & Action Tracking Register</h1>
         </div>
         <div className="flex flex-row gap-2 shrink-0">
+          <a
+            href="/charts.html"
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-lg border border-blue-300 bg-blue-50 px-3 py-2 text-xs md:text-sm font-bold text-blue-800 hover:bg-blue-100 transition whitespace-nowrap"
+          >
+            <i className="fa-solid fa-chart-column mr-1"></i> Project Metrics
+          </a>
           <button
             type="button"
             onClick={() => router.push('/workflow-config')}

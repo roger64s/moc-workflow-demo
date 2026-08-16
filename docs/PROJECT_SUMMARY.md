@@ -13,6 +13,8 @@ Key files:
 - Dashboard and workflow UI
 - Prisma schema and database setup
 - Vercel deployment configuration
+- Separate interactive metrics page: [charts.html](charts.html)
+- Vercel dashboard button opens the deployed Project Metrics page at `/charts.html`.
 
 ## Time Distribution (estimated %)
 

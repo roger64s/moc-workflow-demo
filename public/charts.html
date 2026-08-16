@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MOC Workflow Project Metrics</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root { color-scheme: light; --ink:#172033; --muted:#64748b; --teal:#0f766e; --blue:#2563eb; --orange:#f97316; --gold:#eab308; --purple:#7c3aed; }
+    * { box-sizing:border-box; }
+    body { margin:0; padding:24px; color:var(--ink); background:linear-gradient(135deg,#effaf8,#f8fafc 48%,#eff6ff); font:15px/1.45 "Segoe UI", sans-serif; }
+    main { max-width:1120px; margin:0 auto; }
+    header { display:flex; justify-content:space-between; align-items:end; gap:16px; margin-bottom:22px; }
+    h1 { margin:0; color:var(--teal); font-size:clamp(24px,4vw,36px); }
+    a { color:var(--blue); font-weight:700; text-decoration:none; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .card { min-height:330px; padding:18px; background:#fff; border:1px solid #dbe4e8; border-radius:10px; box-shadow:0 8px 24px #17203312; }
+    .wide { grid-column:1/-1; }
+    .card h2 { margin:0 0 10px; font-size:16px; }
+    .canvas-wrap { height:270px; position:relative; }
+    @media (max-width:760px) { body { padding:16px; } header { align-items:start; flex-direction:column; } .grid { grid-template-columns:1fr; } .wide { grid-column:auto; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header><div><h1>MOC Workflow Project Metrics</h1><p>Development effort and delivery metrics for the public demo.</p></div><a href="/dashboard">Back to dashboard</a></header>
+    <div class="grid">
+      <section class="card"><h2>Time Distribution</h2><div class="canvas-wrap"><canvas id="time"></canvas></div></section>
+      <section class="card"><h2>Effort by Date</h2><div class="canvas-wrap"><canvas id="date"></canvas></div></section>
+      <section class="card wide"><h2>Effort Breakdown</h2><div class="canvas-wrap"><canvas id="effort"></canvas></div></section>
+      <section class="card"><h2>Calendar Effort</h2><div class="canvas-wrap"><canvas id="hours"></canvas></div></section>
+      <section class="card"><h2>Total Effort by Category</h2><div class="canvas-wrap"><canvas id="category"></canvas></div></section>
+    </div>
+  </main>
+  <script>
+    const labels = ['2026'];
+    const categories = ['Coding', 'Testing', 'Rework', 'Deployment', 'Planning'];
+    const values = [50, 25, 15, 7, 3];
+    const colors = ['#0f766e', '#2563eb', '#f97316', '#eab308', '#7c3aed'];
+    new Chart(document.getElementById('time'), { type:'pie', data:{ labels:categories, datasets:[{ data:values, backgroundColor:colors }] }, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' }, title:{ display:true, text:'Estimated Distribution (%)' } } } });
+    new Chart(document.getElementById('date'), { type:'bar', data:{ labels, datasets:[{ label:'Effort units', data:[75], backgroundColor:'#0f766e' }] }, options:{ responsive:true, maintainAspectRatio:false, scales:{ y:{ beginAtZero:true } } } });
+    new Chart(document.getElementById('effort'), { type:'bar', data:{ labels, datasets:categories.map((label,index)=>({ label, data:[values[index]], backgroundColor:colors[index] })) }, options:{ responsive:true, maintainAspectRatio:false, scales:{ x:{ stacked:true }, y:{ stacked:true, beginAtZero:true } } } });
+    new Chart(document.getElementById('hours'), { type:'line', data:{ labels, datasets:[{ label:'Estimated effort units', data:[75], borderColor:'#2563eb', backgroundColor:'#2563eb' }] }, options:{ responsive:true, maintainAspectRatio:false, scales:{ y:{ beginAtZero:true } } } });
+    new Chart(document.getElementById('category'), { type:'bar', data:{ labels:categories, datasets:[{ label:'Effort units', data:values, backgroundColor:colors }] }, options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, scales:{ x:{ beginAtZero:true } } } });
+  </script>
+</body>
+</html>

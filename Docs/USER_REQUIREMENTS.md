@@ -52,3 +52,8 @@
 - In the source-type list, highlight only **MOC**; show **Alarm** and **SCE** in grey.
 - Remove the duplicate **Action Source** column from the row display.
 - After any route or data change, push to GitHub, redeploy on Vercel, and open the public URL again.
+
+## 2026-08-16
+
+- Keep project metrics in a separate interactive chart page linked from the project summary when the project is closed.
+- Show the Project Metrics page from the deployed Vercel dashboard with a dedicated button.
