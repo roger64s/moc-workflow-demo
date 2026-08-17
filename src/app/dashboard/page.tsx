@@ -193,6 +193,15 @@ export default function DashboardPage() {
             <span className="text-amber-700 text-xs font-mono font-bold">{selectedMoc.requestNumber} Workflow Schema</span>
           </div>
           <div className="flex flex-wrap items-center gap-2">
+            <a
+              href="/charts.html"
+              target="_blank"
+              rel="noreferrer"
+              title="Open project metrics"
+              className="rounded-lg border border-blue-300 bg-blue-50 px-3 py-1.5 text-xs font-bold text-blue-800 hover:bg-blue-100 transition whitespace-nowrap"
+            >
+              <i className="fa-solid fa-chart-column mr-1"></i> Metrics
+            </a>
             <span className="text-xs bg-white text-slate-700 font-mono px-3 py-1 rounded-lg border border-slate-300 shadow-xs">
               Source: <strong className="text-amber-600">{selectedMoc.actionSource}</strong>
             </span>
@@ -380,6 +389,7 @@ export default function DashboardPage() {
             href="/charts.html"
             target="_blank"
             rel="noreferrer"
+            title="Open project metrics"
             className="rounded-lg border border-blue-300 bg-blue-50 px-3 py-2 text-xs md:text-sm font-bold text-blue-800 hover:bg-blue-100 transition whitespace-nowrap"
           >
             <i className="fa-solid fa-chart-column mr-1"></i> Metrics
