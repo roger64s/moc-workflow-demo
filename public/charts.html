@@ -36,15 +36,15 @@
   <script>
     Chart.register(ChartDataLabels);
     Chart.defaults.plugins.datalabels = { color:(context) => { const bg = Array.isArray(context.dataset.backgroundColor) ? context.dataset.backgroundColor[context.dataIndex] : context.dataset.backgroundColor; const hex = String(bg || '#fff').replace('#',''); const rgb = hex.length === 3 ? hex.split('').map((v) => parseInt(v + v, 16)) : [parseInt(hex.slice(0,2),16), parseInt(hex.slice(2,4),16), parseInt(hex.slice(4,6),16)]; return (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255 < 0.58 ? '#fff' : '#172033'; }, font:(context) => ({ weight:'bold', size:Math.max(9, Math.min(12, context.chart.width / 75)) }), formatter:(value) => value.toLocaleString() };
-    const labels = ['2026'];
+    const labels = ['Aug 05', 'Aug 16', 'Aug 17'];
     const categories = ['Coding', 'Testing', 'Rework', 'Deployment', 'Planning'];
     const values = [50, 25, 15, 7, 3];
     const colors = ['#0f766e', '#2563eb', '#f97316', '#eab308', '#7c3aed'];
     new Chart(document.getElementById('time'), { type:'pie', data:{ labels:categories, datasets:[{ data:values, backgroundColor:colors }] }, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' }, title:{ display:true, text:'Estimated Distribution (%)' } } } });
-    new Chart(document.getElementById('date'), { type:'bar', data:{ labels, datasets:[{ label:'Effort units', data:[75], backgroundColor:'#0f766e' }] }, options:{ responsive:true, maintainAspectRatio:false, scales:{ y:{ beginAtZero:true } } } });
-    new Chart(document.getElementById('effort'), { type:'bar', data:{ labels, datasets:categories.map((label,index)=>({ label, data:[values[index]], backgroundColor:colors[index] })) }, options:{ responsive:true, maintainAspectRatio:false, scales:{ x:{ stacked:true }, y:{ stacked:true, beginAtZero:true } } } });
-    new Chart(document.getElementById('hours'), { type:'line', data:{ labels, datasets:[{ label:'Estimated effort units', data:[75], borderColor:'#2563eb', backgroundColor:'#2563eb' }] }, options:{ responsive:true, maintainAspectRatio:false, scales:{ y:{ beginAtZero:true } } } });
-    new Chart(document.getElementById('category'), { type:'bar', data:{ labels:categories, datasets:[{ label:'Effort units', data:values, backgroundColor:colors }] }, options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, scales:{ x:{ beginAtZero:true } } } });
+    new Chart(document.getElementById('date'), { type:'bar', data:{ labels, datasets:[{ label:'Effort units', data:[70,20,5], backgroundColor:'#0f766e' }] }, options:{ responsive:true, maintainAspectRatio:false, scales:{ y:{ beginAtZero:true } } } });
+    new Chart(document.getElementById('effort'), { type:'bar', data:{ labels, datasets:[{ label:'Coding', data:[35,10,2], backgroundColor:colors[0] },{ label:'Testing', data:[18,5,1], backgroundColor:colors[1] },{ label:'Rework', data:[10,3,1], backgroundColor:colors[2] },{ label:'Deployment', data:[5,1,1], backgroundColor:colors[3] },{ label:'Planning', data:[2,1,0], backgroundColor:colors[4] }] }, options:{ responsive:true, maintainAspectRatio:false, scales:{ x:{ stacked:true }, y:{ stacked:true, beginAtZero:true } } } });
+    new Chart(document.getElementById('hours'), { type:'line', data:{ labels, datasets:[{ label:'Estimated hours', data:[10,3,1], borderColor:'#2563eb', backgroundColor:'#2563eb' }] }, options:{ responsive:true, maintainAspectRatio:false, scales:{ y:{ beginAtZero:true } } } });
+    new Chart(document.getElementById('category'), { type:'bar', data:{ labels:categories, datasets:[{ label:'Effort units', data:[47,24,14,7,3], backgroundColor:colors }] }, options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, scales:{ x:{ beginAtZero:true } } } });
   </script>
 </body>
 </html>

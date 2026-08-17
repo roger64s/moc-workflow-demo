@@ -382,7 +382,7 @@ export default function DashboardPage() {
             rel="noreferrer"
             className="rounded-lg border border-blue-300 bg-blue-50 px-3 py-2 text-xs md:text-sm font-bold text-blue-800 hover:bg-blue-100 transition whitespace-nowrap"
           >
-            <i className="fa-solid fa-chart-column mr-1"></i> Project Metrics
+            <i className="fa-solid fa-chart-column mr-1"></i> Metrics
           </a>
           <button
             type="button"

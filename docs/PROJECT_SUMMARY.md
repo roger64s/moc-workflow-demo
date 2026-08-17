@@ -2,7 +2,7 @@
 
 ## Project Info
 - Project name: MOC Workflow Demo
-- Repository: (local, deployed via Vercel)
+- Repository: https://github.com/roger64s/moc-workflow-demo.git
 - Branch: main
 - Session dates: 2026
 
@@ -72,3 +72,9 @@ timeline
 ## Final State
 - Deployed via Vercel
 - Supports demo mode, responsive layout, dynamic rendering
+- Top dashboard actions include a Metrics button linking to `/charts.html`.
+
+## Closeout — 2026-08-17
+- Shortened the first-viewport Project Metrics action to a clear Metrics button.
+- Verified the button opens the deployed `/charts.html` metrics page.
+- Completed a successful Next.js production build and responsive local preview.

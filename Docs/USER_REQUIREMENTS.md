@@ -59,3 +59,7 @@
 - Show the Project Metrics page from the deployed Vercel dashboard with a dedicated button.
 - Preview project changes locally first and update GitHub only after an explicit `Close Project` request.
 - Show numeric labels on all project-metrics chart values, with responsive sizing and readable contrast.
+
+## 2026-08-17
+
+- Show a clearly labeled Metrics button in the top dashboard actions for the deployed Vercel demo.
